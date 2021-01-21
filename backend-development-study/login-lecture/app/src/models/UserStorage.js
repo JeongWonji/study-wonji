@@ -1,5 +1,7 @@
 'use strict';
 
+const { use } = require("../routes/home");
+
 class UserStorage {
     static #users = {
         id: ["jwj", "나개발", "김팀장"],
@@ -16,6 +18,18 @@ class UserStorage {
             return newUsers;
         }, {});
         return newUsers;
+    }
+
+    static getUserInfo(id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const usersKeys = Object.keys(users);
+        const userInfo = usersKeys.reduce((newUser, info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo;
     }
 }
 
