@@ -18,3 +18,4 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use("/", home); // use -> 미들웨어를 등록해주는 메서드
 
 module.exports = app;
+
